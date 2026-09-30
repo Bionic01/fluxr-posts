@@ -1,3 +1,13 @@
-{"country":"Zimbabwe","flag":"🇿🇼","networks":["econet.png","netone.png","telecel.png"],
- "pill":"No app. No data. No stress.","headline":"Home is one\ndial away.","sub":"Airtime or data to Zimbabwe in seconds.",
- "code":"*130*31026#"}
+{
+ "country": "Zimbabwe",
+ "flag": "🇿🇼",
+ "networks": [
+  "econet.png",
+  "netone.png",
+  "telecel.png"
+ ],
+ "pill": "No app. No data. No stress.",
+ "headline": "Home is one\ndial away.",
+ "sub": "Airtime or data to Zimbabwe in seconds.",
+ "code": "*130*31026*voucher#"
+}

@@ -13,8 +13,8 @@ config.json keys (all strings unless noted):
   pill           short tag in the lime pill, e.g. "No app needed"
   headline       big white headline, keep it under ~16 characters per line; use \n for a 2nd line
   sub            one line under the headline, e.g. "Airtime or data to Zimbabwe in seconds."
-  code           dial code shown in the lime bar. Default "*130*31026#".
-                 Long form sometimes: "*130*31026*voucher*263Number#"
+  code           dial code shown in the lime bar. Default (most posts) "*130*31026*voucher#".
+                 Long form now and then: "*130*31026*voucher*263Number#"
   code_label     text above the bar. Default "Buy a voucher, dial and follow the menu:"
   networks_label text above the network logos. Default "Works on"
   theme          "mint" (default) or "sunset" or "sky" - background of the top area
@@ -40,9 +40,9 @@ VOUCHERS = ["1voucher.png", "ott-voucher.png", "blu-voucher.png", "fnb-voucher.p
 def build_html(cfg):
     e = lambda s: html.escape(str(s))
     theme = THEMES.get(cfg.get("theme", "mint"), THEMES["mint"])
-    code = cfg.get("code", "*130*31026#")
+    code = cfg.get("code", "*130*31026*voucher#")
     code_len = len(code)
-    code_size = 66 if code_len <= 14 else (46 if code_len <= 26 else 38)
+    code_size = 66 if code_len <= 14 else (60 if code_len <= 20 else (46 if code_len <= 26 else 38))
     headline = e(cfg["headline"]).replace("\\n", "<br>").replace("\n", "<br>")
     two_line = "<br>" in headline
     nets = "".join(f'<div class="net"><img src="logos/{e(n)}"></div>' for n in cfg.get("networks", []))
@@ -113,7 +113,7 @@ h1{{margin-top:12px;color:#fff;font-weight:700;font-size:{72 if two_line else 84
     <path d="M300 60 l-22 -4 m22 4 l-10 20" stroke="#0D372B" stroke-opacity=".45" stroke-width="4" stroke-linecap="round" fill="none"/></svg>
   <div class="phone"><div class="screen"><div class="notch"></div>
     <div class="status"><span>09:41</span><span>●●● 5G</span></div>
-    <div class="dialed">{e(code if len(code) <= 14 else "*130*31026#")}</div>
+    <div class="dialed" style="font-size:{37 if len(code) <= 14 else 24}px;letter-spacing:0">{e(code if len(code) <= 20 else "*130*31026*voucher#")}</div>
     <div class="dialsub">Fluxr · any phone, no app</div>
     <div class="keypad">{keypad}</div>
     <div class="call">{ICON_CALL}</div>

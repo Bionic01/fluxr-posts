@@ -1,1 +1,10 @@
-{"country":"Somalia","flag":"🇸🇴","networks":[],"theme":"sky","pill":"New month","headline":"Hello, October!","sub":"Airtime or data to Somalia in seconds.","code":"*130*31026#"}
+{
+ "country": "Somalia",
+ "flag": "🇸🇴",
+ "networks": [],
+ "theme": "sky",
+ "pill": "New month",
+ "headline": "Hello, October!",
+ "sub": "Airtime or data to Somalia in seconds.",
+ "code": "*130*31026*voucher#"
+}
