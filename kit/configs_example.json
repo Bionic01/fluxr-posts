@@ -1,0 +1,13 @@
+{
+ "_note": "Network logos per country (only show networks you are sure Fluxr supports; leave [] if unsure)",
+ "Zimbabwe":   {"flag": "🇿🇼", "code": "263", "networks": ["econet.png", "netone.png", "telecel.png"]},
+ "Malawi":     {"flag": "🇲🇼", "code": "265", "networks": ["airtel.png", "tnm.png"]},
+ "Mozambique": {"flag": "🇲🇿", "code": "258", "networks": ["vodacom.png", "movitel.png", "tmcel.png"]},
+ "Botswana":   {"flag": "🇧🇼", "code": "267", "networks": ["mascom.png", "orange.png", "btc.png"]},
+ "Lesotho":    {"flag": "🇱🇸", "code": "266", "networks": ["vodacom.png", "econet.png"]},
+ "DRC":        {"flag": "🇨🇩", "code": "243", "networks": ["vodacom.png", "airtel.png", "orange.png"]},
+ "Ethiopia":   {"flag": "🇪🇹", "code": "251", "networks": ["ethio-telecom.png", "safaricom.png"]},
+ "Somalia":    {"flag": "🇸🇴", "code": "252", "networks": []},
+ "Nigeria":    {"flag": "🇳🇬", "code": "234", "networks": ["mtn.png", "airtel.png"]},
+ "Pakistan":   {"flag": "🇵🇰", "code": "92",  "networks": []}
+}
