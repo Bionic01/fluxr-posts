@@ -44,6 +44,7 @@ Test pool (southern African accents, picked for the market; add more over time):
   - **Watch time:** average watch time or completion.
 - Countries and ideas change every day, so compare voices across the same weeks. Don't call a winner until a voice has at least 3 videos and is ahead on both measures.
 - **Every Monday briefing:** send the user a short voice scoreboard (table plus one line on who is leading) and recommend whether to change the main voice. Change it only after the user says yes.
+- **Don't wait to be asked (user, 1 Oct 2026).** Check the voice numbers in every morning briefing. As soon as one voice is clearly ahead (3+ videos, ahead on both measures), tell the user that day without being asked: "This voice is working best, let's use it more," with the numbers. Do the same if a voice is clearly doing badly and should be dropped.
 
 ## Log
 
