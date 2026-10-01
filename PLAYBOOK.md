@@ -104,8 +104,12 @@ Use getBestTimeToPostByNetwork for each network to adjust the times.
    - "Fluxr. No app, no data, any phone."
 2. **Generate the voice in ElevenLabs.**
    - Make one flow per day, named "Fluxr shorts - <date> <country>".
-   - Use a TTS node with eleven_multilingual_v2 and generations 1.
-   - The default voice is "Monique African Queen" (nKSoaggACPsVWCfZyDEv), a warm southern-African female voice. "Grace" (TaC4GDlXCYYbuVG7GsRr) is an alternative.
+   - Use a TTS node with eleven_v4 and generations 1 (eleven_multilingual_v2 only if v4 isn't available in the node).
+   - Voices (user, 1 Oct 2026: "use these voices interchangeably, they are very good"): alternate between these two from one video to the next, and note which one was used in History.
+     - "Thobeka Majola" (hjmGn69egwbuNEZ8kska), South African female, relaxed storytelling voice.
+     - "Darius Voice" (fyDgymp89lRTiPu6iLkM), South African male, warm and confident.
+     - These replace the old defaults "Monique African Queen" and "Grace".
+   - With eleven_v4, add light direction tags such as [warmly] or [excited], use [long pause] between sentences that need a gap, and write the brand as /ˈflʌksə/ so it is said "flux-er". These settings made the Fluxr Agents promo videos (1 Oct 2026) sound natural.
    - Read the voice's `duration_secs`.
 3. **Render the video** in code at the voice length rounded up: set `"duration"` in the config, then run `python3 kit/video.py config.json posts/<date>-<country>-voice.mp4 --music --voice`. `--voice` keeps the music bed about 17 dB under the voiceover and leaves out the key clicks (user, 1 Oct 2026: the tones were overpowering the voice). Check 5 sample frames with ffmpeg.
 4. **Push to GitHub** and attach the video to the flow by its **commit-SHA raw URL**, for example `https://raw.githubusercontent.com/Bionic01/fluxr-posts/<sha>/posts/<file>`. The `main` URL can be cached for about 5 minutes.
