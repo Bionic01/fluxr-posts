@@ -1,6 +1,6 @@
 # Fluxr daily social playbook
 
-This is the source of truth for the daily Fluxr routine. Owner: Rodney (rmjesiman@gmail.com). Timezone: Africa/Johannesburg. Last updated 1 Oct 2026 (evening).
+This is the source of truth for the daily Fluxr routine. Owner: Rodney (rmjesiman@gmail.com). Timezone: Africa/Johannesburg. Last updated 1 Oct 2026 (night).
 
 ## Golden rules (never break)
 
@@ -41,6 +41,7 @@ Also worth posting about now and then:
    - Cover every ACTIVE ad set whose end time is in the future or empty: spend, reach, frequency, results and cost per result, for yesterday and lifetime.
    - Keep a running comparison of picture styles (code poster vs ElevenLabs vs Canva) by cost per WhatsApp chat.
    - Give numbered suggestions. Change nothing.
+   - **Mondays: voice scoreboard.** Score last week's voices as described in VOICES.md, send the table with one line on who's leading, and recommend whether to change the main voice. Change it only after the user says yes. Plan this week's 7 voices (4 main, 3 test) and write them in the VOICES.md log.
 2. **Idea.**
    - Check Metricool analytics (FBPO02, FBPO03 and FBPO12, last 14 days) and the scheduled posts, then pick a fresh idea and country.
    - What works: naming a product and price, and opening with a question. Plain greetings perform worst.
@@ -105,10 +106,8 @@ Use getBestTimeToPostByNetwork for each network to adjust the times.
 2. **Generate the voice in ElevenLabs.**
    - Make one flow per day, named "Fluxr shorts - <date> <country>".
    - Use a TTS node with eleven_v4 and generations 1 (eleven_multilingual_v2 only if v4 isn't available in the node).
-   - Voices (user, 1 Oct 2026: "use these voices interchangeably, they are very good"): alternate between these two from one video to the next, and note which one was used in History.
-     - "Thobeka Majola" (hjmGn69egwbuNEZ8kska), South African female, relaxed storytelling voice.
-     - "Darius Voice" (fyDgymp89lRTiPu6iLkM), South African male, warm and confident.
-     - These replace the old defaults "Monique African Queen" and "Grace".
+   - **Voice: follow VOICES.md** (user, 1 Oct 2026). In every 7 videos, use the main voice 4 times and test other southern-African voices the other 3 times, mixing female and male. The main voices for now are "Thobeka Majola" (hjmGn69egwbuNEZ8kska, South African female) and "Darius Voice" (fyDgymp89lRTiPu6iLkM, South African male), alternating. The test pool and IDs are in VOICES.md. Voices must suit the African market and must never sound like AI.
+   - Log every video's voice in the VOICES.md log the day it is made.
    - With eleven_v4, add light direction tags such as [warmly] or [excited], use [long pause] between sentences that need a gap, and write the brand as /ˈflʌksə/ so it is said "flux-er". These settings made the Fluxr Agents promo videos (1 Oct 2026) sound natural.
    - Read the voice's `duration_secs`.
 3. **Render the video** in code at the voice length rounded up: set `"duration"` in the config, then run `python3 kit/video.py config.json posts/<date>-<country>-voice.mp4 --music --voice`. `--voice` keeps the music bed about 17 dB under the voiceover and leaves out the key clicks (user, 1 Oct 2026: the tones were overpowering the voice). Check 5 sample frames with ffmpeg.
