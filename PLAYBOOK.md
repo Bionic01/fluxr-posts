@@ -44,6 +44,7 @@ Also worth posting about now and then:
 2. **Idea.**
    - Check Metricool analytics (FBPO02, FBPO03 and FBPO12, last 14 days) and the scheduled posts, then pick a fresh idea and country.
    - What works: naming a product and price, and opening with a question. Plain greetings perform worst.
+   - **Say it plainly (user, 1 Oct 2026).** Headlines, video hooks and opening lines state what Fluxr does in plain words, for example "Send data to Malawi", "Send airtime to Zimbabwe in seconds" or "Need to send data to Malawi?". No vague or clever phrases like "Weekend data for home?" that make people guess.
 3. **Make the set for every platform** (see below): the poster, the short video and per-platform copy.
 4. **Review message.** Send the poster and video, the copy for each platform, the times and the ad plan. Ask the user to reply "post", or "A"/"B" on faces days (Mon, Wed, Fri). Then stop and wait.
 5. **After "post".**
@@ -79,7 +80,7 @@ Use getBestTimeToPostByNetwork for each network to adjust the times.
 **Design rules (user, 1 Oct 2026, after a scan of ~130 past Fluxr Facebook pictures):**
 - **One Fluxr logo per flyer**, small, top-left. Never a second logo (no logo in the footer).
 - **One flag per flyer** (the destination country). No extra SA→country emoji flags.
-- Keep text short and leave breathing space: a 2–5 word headline, one short sub-line, the code label, the code bar, the voucher logos and the contact footer. No extra pills or taglines.
+- Keep text short and leave breathing space: a plain 2–5 word headline that says the service and the country ("Send data to Malawi"), one short sub-line, the code label, the code bar, the voucher logos and the contact footer. No extra pills or taglines.
 - Fluxr's own style: a big lifestyle photo of real-looking people (often holding a phone) on top, a curved dark-green panel with a lime rim below, and the headline in white. Palette: dark green #0E3B24, lime #7ED957/#85ED70.
 
 **Which picture on which day (user, 1 Oct 2026):**
@@ -103,12 +104,12 @@ Use getBestTimeToPostByNetwork for each network to adjust the times.
    - Use a TTS node with eleven_multilingual_v2 and generations 1.
    - The default voice is "Monique African Queen" (nKSoaggACPsVWCfZyDEv), a warm southern-African female voice. "Grace" (TaC4GDlXCYYbuVG7GsRr) is an alternative.
    - Read the voice's `duration_secs`.
-3. **Render the video** in code at the voice length rounded up: set `"duration"` in the config, then run `python3 kit/video.py config.json posts/<date>-<country>-music.mp4 --music`. This adds a quiet music bed and key clicks. Check 5 sample frames with ffmpeg.
+3. **Render the video** in code at the voice length rounded up: set `"duration"` in the config, then run `python3 kit/video.py config.json posts/<date>-<country>-voice.mp4 --music --voice`. `--voice` keeps the music bed about 17 dB under the voiceover and leaves out the key clicks (user, 1 Oct 2026: the tones were overpowering the voice). Check 5 sample frames with ffmpeg.
 4. **Push to GitHub** and attach the video to the flow by its **commit-SHA raw URL**, for example `https://raw.githubusercontent.com/Bionic01/fluxr-posts/<sha>/posts/<file>`. The `main` URL can be cached for about 5 minutes.
 5. **Compose.**
    - Add a `composition` node (eleven_composition) with `connect_from` set to [video node, TTS node], then run it.
    - The result's `master_url` is the final video. It expires after about 2 hours, so get a fresh one with creative_get_flow_run_status before scheduling.
-6. **Fallback.** If ElevenLabs is unavailable, use the `--music` video on its own (no voice).
+6. **Fallback.** If ElevenLabs is unavailable, render with `--music` only (normal music level and key clicks) and use that video on its own (no voice).
 
 ## Hosting (computer can be off)
 

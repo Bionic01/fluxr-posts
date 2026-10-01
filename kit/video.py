@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 """Fluxr short video renderer (YouTube Shorts / TikTok / Reels).
 
-Usage:  python3 video.py config.json out.mp4 [--music]
+Usage:  python3 video.py config.json out.mp4 [--music] [--voice]
 Renders an 18-second 1080x1920 (9:16) animated video, drawn in HTML/CSS and
 captured frame by frame with Playwright's Chromium, then encoded with ffmpeg.
 Without --music the video is silent (voiceover + music are added later in an
 ElevenLabs "composition" node). With --music a quiet synthesized music bed and
 soft key clicks are mixed in locally (fallback when ElevenLabs is unavailable).
+Add --voice when the video will get an ElevenLabs voiceover: the music bed is
+mixed about 17 dB quieter and the key clicks are left out, so the music never
+competes with the voice (user, 1 Oct 2026: the tones were overpowering the voice).
 
 config.json uses the same keys as render.py (country, flag, networks, code, theme)
 plus optional:
@@ -196,7 +199,7 @@ setT(0);
 </script></body></html>"""
 
 
-def synth_music(path, dur=DUR, clicks=None):
+def synth_music(path, dur=DUR, clicks=None, peak=0.35):
     """Quiet warm pad + soft plucks (C major-ish loop), 44.1 kHz stereo WAV."""
     import numpy as np
     sr = 44100
@@ -218,7 +221,7 @@ def synth_music(path, dur=DUR, clicks=None):
         mm = (t >= c) & (t < c + 0.04)
         out[mm] += 0.05 * np.exp(-(t[mm] - c) * 120) * np.sin(2 * np.pi * 1800 * t[mm])
     out *= np.clip(t / 0.8, 0, 1) * np.clip((dur - t) / 1.2, 0, 1)
-    out = (out / max(1e-9, np.abs(out).max()) * 0.35 * 32767).astype(np.int16)
+    out = (out / max(1e-9, np.abs(out).max()) * peak * 32767).astype(np.int16)
     with wave.open(str(path), "wb") as w:
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(sr)
         w.writeframes(np.repeat(out[:, None], 2, axis=1).tobytes())
@@ -228,6 +231,7 @@ def main():
     cfg = json.loads(pathlib.Path(sys.argv[1]).read_text(encoding="utf-8"))
     out = pathlib.Path(sys.argv[2]).resolve()
     music = "--music" in sys.argv
+    voice = "--voice" in sys.argv  # quiet bed under a voiceover, no clicks
     page = KIT / "_video.html"
     dur = float(cfg.get("duration", DUR))
     page.write_text(build_html(cfg), encoding="utf-8")
@@ -251,7 +255,8 @@ def main():
         code = cfg.get("code", "*130*31026*voucher#")
         k = dur / 18.0
         clicks = [(6.6 + i * 3.6 / len(code)) * k for i in range(len(code))] + [10.35 * k]
-        wav = out.with_suffix(".wav"); synth_music(wav, dur=dur, clicks=clicks)
+        wav = out.with_suffix(".wav")
+        synth_music(wav, dur=dur, clicks=None if voice else clicks, peak=0.05 if voice else 0.35)
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(silent), "-i", str(wav), "-c:v", "copy",
                         "-c:a", "aac", "-b:a", "160k", "-shortest", "-movflags", "+faststart", str(out)], check=True)
         silent.unlink(); wav.unlink()
