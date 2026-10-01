@@ -10,6 +10,8 @@ soft key clicks are mixed in locally (fallback when ElevenLabs is unavailable).
 
 config.json uses the same keys as render.py (country, flag, networks, code, theme)
 plus optional:
+  duration    seconds (default 18). Set it to the voiceover length (rounded up) so the
+              whole timeline stretches to fit the voice.
   hook        two short lines for the opening, e.g. "Sending love\\nto Mozambique?"
   cc          the country dialling code, e.g. "258" (shown in step 3)
   voucher_line  default "From R5 at your local store"
@@ -154,13 +156,14 @@ body{{width:{W}px;height:{H}px;overflow:hidden;font-family:Poppins,'Noto Color E
 </div>
 </div>
 <script>
-const CODE = {json.dumps(code)};
+const CODE = {json.dumps(code)}; const DUR = {float(cfg.get('duration', 18))};
 const cl=(x,a,b)=>Math.max(a,Math.min(b,x));
 const p=(t,a,b)=>cl((t-a)/(b-a),0,1);
 const eo=x=>1-Math.pow(1-x,3);
 const eb=x=>{{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2);}};
 function show(id,t,a,b,fi=0.35,fo=0.35){{const el=document.getElementById(id);let o=Math.min(p(t,a,a+fi),1-p(t,b-fo,b));el.style.opacity=cl(o,0,1);el.style.visibility=o>0?'visible':'hidden';return o;}}
-function setT(t){{
+function setT(t0){{
+  const t=t0*18/DUR;
   show('s1',t,0,3.2,0.2);
   const f=eb(p(t,0.1,0.7)); document.getElementById('flag').style.transform=`scale(${{f}})`;
   const h=eo(p(t,0.5,1.1)); const hk=document.getElementById('hook'); hk.style.opacity=h; hk.style.transform=`translateY(${{(1-h)*60}}px)`;
@@ -226,6 +229,7 @@ def main():
     out = pathlib.Path(sys.argv[2]).resolve()
     music = "--music" in sys.argv
     page = KIT / "_video.html"
+    dur = float(cfg.get("duration", DUR))
     page.write_text(build_html(cfg), encoding="utf-8")
     silent = out.with_suffix(".silent.mp4") if music else out
     from playwright.sync_api import sync_playwright
@@ -238,15 +242,16 @@ def main():
         pg.goto(page.as_uri()); pg.wait_for_load_state("networkidle"); pg.evaluate("document.fonts.ready")
         missing = pg.evaluate("[...document.images].filter(i=>!i.complete||i.naturalWidth===0).map(i=>i.src)")
         if missing: print("MISSING IMAGES:", missing)
-        for i in range(int(DUR * FPS)):
+        for i in range(int(dur * FPS)):
             pg.evaluate(f"setT({i / FPS})")
             ff.stdin.write(pg.screenshot(type="jpeg", quality=92))
         b.close()
     ff.stdin.close(); ff.wait()
     if music:
         code = cfg.get("code", "*130*31026*voucher#")
-        clicks = [6.6 + k * 3.6 / len(code) for k in range(len(code))] + [10.35]
-        wav = out.with_suffix(".wav"); synth_music(wav, clicks=clicks)
+        k = dur / 18.0
+        clicks = [(6.6 + i * 3.6 / len(code)) * k for i in range(len(code))] + [10.35 * k]
+        wav = out.with_suffix(".wav"); synth_music(wav, dur=dur, clicks=clicks)
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(silent), "-i", str(wav), "-c:v", "copy",
                         "-c:a", "aac", "-b:a", "160k", "-shortest", "-movflags", "+faststart", str(out)], check=True)
         silent.unlink(); wav.unlink()
