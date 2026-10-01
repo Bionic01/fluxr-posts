@@ -116,7 +116,7 @@ body{{width:{W}px;height:{H}px;overflow:hidden;font-family:Poppins,'Noto Color E
 <div class="scene" id="s1">
   <div id="flag" class="abs"><span>{e(cfg['flag'])}</span></div>
   <div id="hook" class="abs">{hook}</div>
-  <div id="route" class="abs"><span>🇿🇦 South Africa</span><span class="ar">→</span><span>{e(cfg['flag'])} {e(cfg['country'])}</span></div>
+  <div id="route" class="abs"><span>South Africa</span><span class="ar">→</span><span>{e(cfg['country'])}</span></div>
 </div>
 
 <div class="scene" id="s2">

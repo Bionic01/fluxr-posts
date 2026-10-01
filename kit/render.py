@@ -97,7 +97,7 @@ h1{{margin-top:12px;color:#fff;font-weight:700;font-size:{72 if two_line else 84
 .footer{{position:absolute;left:0;bottom:0;width:1080px;height:116px;background:#fff;display:flex;align-items:center;padding:0 44px;gap:22px}}
 .footer .flogo{{height:50px}}
 .div{{width:2px;height:54px;background:rgba(13,55,43,.18)}}
-.fitems{{flex:1;display:flex;justify-content:space-between;align-items:center}}
+.fitems{{flex:1;display:flex;justify-content:space-evenly;align-items:center}}
 .fi{{display:flex;align-items:center;gap:10px;color:#0D372B;font-size:22px;font-weight:600;white-space:nowrap}}
 .ic{{width:44px;height:44px;border-radius:50%;background:#0D372B;display:flex;align-items:center;justify-content:center}}
 .ic.wa{{background:#25D366}}
@@ -119,7 +119,7 @@ h1{{margin-top:12px;color:#fff;font-weight:700;font-size:{72 if two_line else 84
     <div class="call">{ICON_CALL}</div>
   </div></div>
   <div class="flagwrap"><span>{e(cfg['flag'])}</span></div>
-  <div class="route"><span>🇿🇦 South Africa</span><span class="arrow">→</span><span>{e(cfg['flag'])} {e(cfg['country'])}</span></div>
+  <div class="route"><span>South Africa</span><span class="arrow">→</span><span>{e(cfg['country'])}</span></div>
   {f'<div class="nets"><h4>{e(cfg.get("networks_label", "Works on"))}</h4><div class="netrow">{nets}</div></div>' if nets else '<div class="nets"><div class="checks"><span>✓ Any phone</span><span>✓ No app</span><span>✓ No data</span></div></div>'}
 </div>
 <svg class="wave" viewBox="0 0 1080 110" preserveAspectRatio="none"><path d="M0 60 C 240 -10, 520 10, 760 44 C 900 64, 1000 58, 1080 30 L1080 110 L0 110 Z" fill="#0D372B"/></svg>
@@ -133,7 +133,6 @@ h1{{margin-top:12px;color:#fff;font-weight:700;font-size:{72 if two_line else 84
   <div class="tiles">{vouchers}</div>
 </div>
 <div class="footer">
-  <img class="flogo" src="logos/fluxr-green.png"><div class="div"></div>
   <div class="fitems">
     <div class="fi"><div class="ic">{ICON_MAIL}</div>info@fluxr.co.za</div>
     <div class="fi"><div class="ic">{ICON_WEB}</div>www.fluxr.co.za</div>

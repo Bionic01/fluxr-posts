@@ -1,6 +1,6 @@
 # Fluxr daily social playbook
 
-This is the source of truth for the daily Fluxr routine. Owner: Rodney (rmjesiman@gmail.com). Timezone: Africa/Johannesburg. Last updated 1 Oct 2026.
+This is the source of truth for the daily Fluxr routine. Owner: Rodney (rmjesiman@gmail.com). Timezone: Africa/Johannesburg. Last updated 1 Oct 2026 (evening).
 
 ## Golden rules (never break)
 
@@ -45,7 +45,7 @@ Also worth posting about now and then:
    - Check Metricool analytics (FBPO02, FBPO03 and FBPO12, last 14 days) and the scheduled posts, then pick a fresh idea and country.
    - What works: naming a product and price, and opening with a question. Plain greetings perform worst.
 3. **Make the set for every platform** (see below): the poster, the short video and per-platform copy.
-4. **Review message.** Send the poster and video, the copy for each platform, the times and the ad plan. Ask the user to reply "post", or "A"/"B" on Fridays. Then stop and wait.
+4. **Review message.** Send the poster and video, the copy for each platform, the times and the ad plan. Ask the user to reply "post", or "A"/"B" on faces days (Mon, Wed, Fri). Then stop and wait.
 5. **After "post".**
    - Schedule everything in Metricool.
    - Create and activate the 7-day WhatsApp ad.
@@ -76,10 +76,19 @@ Use getBestTimeToPostByNetwork for each network to adjust the times.
 
 ## Pictures
 
-- **Mon–Thu, Sat, Sun: code poster.** Run `kit/render.py` (see its docstring and `kit/configs_example.json`). Proofread the PNG, then commit it to `posts/`.
-- **Friday is faces day.** Make two versions of the same idea with realistic people:
+**Design rules (user, 1 Oct 2026, after a scan of ~130 past Fluxr Facebook pictures):**
+- **One Fluxr logo per flyer**, small, top-left. Never a second logo (no logo in the footer).
+- **One flag per flyer** (the destination country). No extra SA→country emoji flags.
+- Keep text short and leave breathing space: a 2–5 word headline, one short sub-line, the code label, the code bar, the voucher logos and the contact footer. No extra pills or taglines.
+- Fluxr's own style: a big lifestyle photo of real-looking people (often holding a phone) on top, a curved dark-green panel with a lime rim below, and the headline in white. Palette: dark green #0E3B24, lime #7ED957/#85ED70.
+
+**Which picture on which day (user, 1 Oct 2026):**
+- **Mon, Wed, Fri are faces days.** Make two versions of the same idea and the user replies "A" or "B":
   - A: ElevenLabs, flow FdwBEZOYHTRRMts7H49b, gpt-image-2 at 1080×1350, with the official logo reference nodes.
-  - B: Canva, on the user's current plan. Skip any paid feature and say so.
+  - B: Canva (the user prefers this look). Use `copy-design` on the 4:5 template **DAHWxzTM-8E** (1080×1350, one logo, clean green panel; edit link https://www.canva.com/d/3_3UM5o6CfiihCY). Swap the photo with `generate-image` + `update_fill` on the photo rect, and change the headline, sub and code with `find_and_replace_text`. Do NOT use resize-design (free trial uses are nearly gone). Do not use the old 1080×1440 design DAHWvUx5c0o (Instagram rejects 3:4, and its green panel image has old text baked in).
+  - The faces in both versions are AI-made (Canva's generator is AI too). Tell the user so if it comes up, and set Instagram `isAiGenerated` true.
+- **Tue, Thu, Sat, Sun: code poster.** Run `kit/render.py` (see its docstring and `kit/configs_example.json`). It now has one logo and one flag. Proofread the PNG, then commit it to `posts/`.
+- Skip any paid Canva feature and say so. The user will not pay for Canva.
 
 ## Short video (YouTube Shorts, TikTok, Reels)
 
@@ -133,3 +142,5 @@ Use getBestTimeToPostByNetwork for each network to adjust the times.
 - 7 Oct 2026, 07:30: pause the Malawi (120254232283700085) and Mozambique (120254232336310085) 60-day engagement ad sets. This is already scheduled. Then propose the plan forward.
 - Ads running from 30 Sep: Zimbabwe WhatsApp with the ElevenLabs picture (campaign 120254392425900085) and with the Canva picture (120254392547500085), both to 7 Oct. From 1 Oct: Mozambique code poster (120254403091160085), to 8 Oct.
 - Metricool upgraded to the Starter plan (about $25/month) on 1 Oct 2026.
+- From 2 Oct: Malawi WhatsApp ad with the Canva picture (campaign 120254423744900085, ad set 120254423747760085), to 9 Oct. Malawi targeting uses interest 6003288582476 ("Malawi"), found in this account's Malawi 60-day ad set.
+- Picture-style scoreboard so far (cost per WhatsApp chat): ElevenLabs R3.42 (4 chats) vs Canva R6.66 (2 chats), Zimbabwe, as of 30 Sep.
