@@ -33,7 +33,7 @@ Country codes and example numbers:
 
 Also worth posting about now and then:
 - The Fluxr app on Google Play.
-- Fluxr Agents: 10% commission on customers' international airtime and data for up to five years. People apply by sending "AGENT REQUEST" on WhatsApp to +27 60 636 0061.
+- Fluxr Agents (the free Fluxr Agents app on Google Play: https://play.google.com/store/apps/details?id=za.co.fluxr.agents). Agents get an agent code, customers dial *130*31026*AGENTCODE# to link, and agents earn up to 10% when their customers send airtime and data home and 2% on local airtime and data, paid from the customer's 2nd purchase. The top 3 agents win R500, R300 and R100 each month. (Facts as used in the Agents campaign chat, 1 Oct 2026.)
 
 ## The daily routine (briefing at 07:45 in the main chat)
 
@@ -67,6 +67,9 @@ Also worth posting about now and then:
 | Google Business Profile | `gmbData.type` "publication": a text update of 1,500 characters or less, linking to www.fluxr.co.za. **Never put phone numbers in GBP posts (Google rejects them).** Add the poster as a "photo" post about once a week | 09:00 |
 
 Use getBestTimeToPostByNetwork for each network to adjust the times.
+
+**Other chats schedule Fluxr posts too (user, 1 Oct 2026: keep the chats working together).** Before planning a day, run getScheduledPosts for that day and include everything already booked in the day's table, whoever made it. Keep this routine's posts at least 1 hour away from those on the same network, and don't duplicate their topic.
+- Fluxr Agents campaign (made in the "Flaxa Agent promo videos" chat): Video 1 on Fri 2 Oct 17:00 and Video 2 on Mon 5 Oct 17:00 (Facebook and Instagram Reels, TikTok, YouTube), and 5 picture posts at 12:00 on 3, 4, 6, 7 and 8 Oct (Facebook + Instagram). That chat also has scheduled tasks that prepare paused Agents ads after each video goes out; they wait for the user's go and a daily budget. Include them in the ad report once live.
 
 **Two posts a day (the user's instruction on 1 Oct 2026).**
 - The poster goes out in the morning: Facebook + Instagram, X, Threads and GBP.
