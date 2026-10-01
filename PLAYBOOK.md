@@ -70,6 +70,7 @@ Use getBestTimeToPostByNetwork for each network to adjust the times.
 **Two posts a day (the user's instruction on 1 Oct 2026).**
 - The poster goes out in the morning: Facebook + Instagram, X, Threads and GBP.
 - The short video goes out in the evening, about 18:00, as one Metricool post to TikTok, Instagram Reel, Facebook Reel, X and Threads. The video also goes to YouTube as a Short at about 16:00.
+- Google Business Profile gets 2 a day (the user's request on 1 Oct 2026): the text update with the poster in the morning, and the video at about 18:00 as a separate `gmbData.type` "photo" post (no text; videos must be 30 seconds or less).
 - LinkedIn gets ONE post a day (several posts a day hurt reach there). Use the video with the professional text.
 - Use the video's static.metricool.com URL (from the first video post Metricool accepts) for the other video posts, because the ElevenLabs link expires.
 
