@@ -50,5 +50,8 @@ Test pool (southern African accents, picked for the market; add more over time):
 
 | Date | Video | Country / idea | Voice | Views | Eng. rate | Avg watch | Notes |
 |---|---|---|---|---|---|---|---|
+| 1 Oct | Daily short (18:00) | Mozambique, sending love | Monique African Queen | | | | eleven_multilingual_v2, before the voice plan |
+| 2 Oct | Daily short (18:00) | Malawi, weekend data | Monique African Queen | | | | eleven_multilingual_v2, before the voice plan |
 | 2 Oct | Fluxr Agents V1 (17:00) | Agents app, all countries | Thobeka Majola | | | | 51 s promo, not a daily short |
 | 5 Oct | Fluxr Agents V2 (17:00) | Agents app, 5 things | Darius Voice | | | | 50 s promo, not a daily short |
+| 3 Oct | Daily short (18:00) | Botswana, send airtime | Thobeka Majola | | | | main slot, eleven_v4, 29 s |

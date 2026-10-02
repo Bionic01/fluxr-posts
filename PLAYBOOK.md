@@ -134,6 +134,7 @@ Use getBestTimeToPostByNetwork for each network to adjust the times.
   - Zimbabwe uses behavior 6019673233983 ("Lived in Zimbabwe (Formerly Expats - Zimbabwe)").
   - Mozambique uses interests 6003698043583 (Mozambique) and 6003320984914 (Remittance).
   - Other countries: use only IDs already found in this account's ad sets. Otherwise target ZA broadly and say so.
+  - IDs found in this account so far: Malawi interest 6003288582476; Botswana interest 6002988706250; Zimbabwe interest 6004176068095; Ethiopia interest 6003006728219 and behavior 6018797165983 (Lived in Ethiopia); Nigeria behavior 6018797004183 (Lived in Nigeria); WorldRemit interest 6014750122166; Remittance 6003320984914.
 - **Creative:**
   - page_id 554087821128756.
   - image_url is the static.metricool.com URL.
