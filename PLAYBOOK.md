@@ -15,6 +15,7 @@ This is the source of truth for the daily Fluxr routine. Owner: Rodney (rmjesima
 6. **Best route first.** Prefer the official, legitimate and cheapest option. Don't use AdWhispr (removed).
 7. **Rotate countries** and never repeat a country two days running: Zimbabwe, Malawi, Mozambique, Botswana, Lesotho, DRC, Ethiopia, Somalia, Nigeria, Pakistan. Zimbabwe is the biggest market.
 8. **Check everything before sending.** Open every picture and sample frames of every video, and proofread every word, code, number and logo.
+9. **No AI labels on any post (user, 2 Oct 2026).** Instagram `isAiGenerated` false, YouTube `isAiGeneratedContent` false, TikTok `isAigc` false, and leave the Meta ad creative `self_ai_disclosure` unset. Platforms may still add a label on their own; that's outside our control.
 
 Country codes and example numbers:
 
@@ -58,7 +59,7 @@ Also worth posting about now and then:
 
 | Platform | Format | Default time |
 |---|---|---|
-| Facebook + Instagram | Poster (1080×1350) and the main caption. Instagram `isAiGenerated` is false for code posters and true for ElevenLabs or Canva pictures. | Best hour, usually 10:00 |
+| Facebook + Instagram | Poster (1080×1350) and the main caption. Instagram `isAiGenerated` is always false (no AI labels, see golden rule 9). | Best hour, usually 10:00 |
 | X (@FluxrSA) | Poster plus text of 270 characters or less, with 1–2 hashtags | 10:00 |
 | Threads | Poster plus text of 450 characters or less | 10:00 |
 | LinkedIn (company page) | A professional angle: financial inclusion, why USSD, agents, partners or milestones. Not a hard sell. 600–1,200 characters, 3–5 hashtags, poster or video | About 11:00 |
@@ -91,7 +92,7 @@ Use getBestTimeToPostByNetwork for each network to adjust the times.
 - **Mon, Wed, Fri are faces days.** Make two versions of the same idea and the user replies "A" or "B":
   - A: ElevenLabs, flow FdwBEZOYHTRRMts7H49b, gpt-image-2 at 1080×1350, with the official logo reference nodes.
   - B: Canva (the user prefers this look). Use `copy-design` on the 4:5 template **DAHWxzTM-8E** (1080×1350, one logo, clean green panel; edit link https://www.canva.com/d/3_3UM5o6CfiihCY). Swap the photo with `generate-image` + `update_fill` on the photo rect, and change the headline, sub and code with `find_and_replace_text`. Do NOT use resize-design (free trial uses are nearly gone). Do not use the old 1080×1440 design DAHWvUx5c0o (Instagram rejects 3:4, and its green panel image has old text baked in).
-  - The faces in both versions are AI-made (Canva's generator is AI too). Tell the user so if it comes up, and set Instagram `isAiGenerated` true.
+  - The faces in both versions are AI-made (Canva's generator is AI too). Tell the user so if it comes up. No AI labels (golden rule 9).
 - **Tue, Thu, Sat, Sun: code poster.** Run `kit/render.py` (see its docstring and `kit/configs_example.json`). It now has one logo and one flag. Proofread the PNG, then commit it to `posts/`.
 - Skip any paid Canva feature and say so. The user will not pay for Canva.
 
@@ -150,5 +151,7 @@ Use getBestTimeToPostByNetwork for each network to adjust the times.
 - 7 Oct 2026, 07:30: pause the Malawi (120254232283700085) and Mozambique (120254232336310085) 60-day engagement ad sets. This is already scheduled. Then propose the plan forward.
 - Ads running from 30 Sep: Zimbabwe WhatsApp with the ElevenLabs picture (campaign 120254392425900085) and with the Canva picture (120254392547500085), both to 7 Oct. From 1 Oct: Mozambique code poster (120254403091160085), to 8 Oct.
 - Metricool upgraded to the Starter plan (about $25/month) on 1 Oct 2026.
+- 2 Oct: deleted the unused "Your voucher, their airtime | Foreigners in SA | 14 days" campaign (120254403202960085; its ad was paused, R0 spent) on the user's instruction. The boosted post "Your voucher. Their airtime." (ad set 120254404386660085) keeps running to 7 Oct.
+- From 3 Oct: Botswana WhatsApp ad, code poster (campaign 120254433473170085, ad set 120254433475780085), to 10 Oct.
 - From 2 Oct: Malawi WhatsApp ad with the Canva picture (campaign 120254423744900085, ad set 120254423747760085), to 9 Oct. Malawi targeting uses interest 6003288582476 ("Malawi"), found in this account's Malawi 60-day ad set.
 - Picture-style scoreboard so far (cost per WhatsApp chat): ElevenLabs R3.42 (4 chats) vs Canva R6.66 (2 chats), Zimbabwe, as of 30 Sep.

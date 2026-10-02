@@ -23,7 +23,7 @@ Current favourites (main slots):
 
 | Voice | ID | Notes |
 |---|---|---|
-| Thobeka Majola | hjmGn69egwbuNEZ8kska | South African female, relaxed storytelling. Used for the Fluxr Agents Video 1 (2 Oct). |
+| Thobeka Majola | hjmGn69egwbuNEZ8kska | South African female, relaxed storytelling. Used for the Fluxr Agents Video 1 (2 Oct). User on 2 Oct, after the Botswana short: "a very good voice". |
 | Darius Voice | fyDgymp89lRTiPu6iLkM | South African male, warm and confident. Used for the Fluxr Agents Video 2 (5 Oct). |
 
 Test pool (southern African accents, picked for the market; add more over time):
