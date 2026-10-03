@@ -43,6 +43,12 @@ Also worth posting about now and then:
    - Keep a running comparison of picture styles (code poster vs ElevenLabs vs Canva) by cost per WhatsApp chat.
    - Give numbered suggestions. Change nothing.
    - **Mondays: voice scoreboard.** Score last week's voices as described in VOICES.md, send the table with one line on who's leading, and recommend whether to change the main voice. Change it only after the user says yes. Plan this week's 7 voices (4 main, 3 test) and write them in the VOICES.md log.
+   - **Act on the numbers (user, 3 Oct 2026: "improve yourself, see results and say what we should do, and tell me what you'll be doing").** Every briefing has a short "What I'm changing" part: what the numbers showed, what I'm doing differently in the content because of it (no approval needed), and numbered money suggestions (approval needed). Standing rules:
+     - A WhatsApp ad under R1.50 per chat after 3 days: suggest doubling its daily budget for the rest of its run.
+     - A WhatsApp ad over R5 per chat after 3 days: suggest pausing it.
+     - Engagement-only ads (likes, interactions): suggest replacing them with WhatsApp-chat ads when they end, since chats are what turn into sales.
+     - Reuse whatever is winning (picture style, country, wording) on the next days' content, and say so.
+     - Ask the user now and then how many WhatsApp chats became sales, so we can judge cost per sale, not just cost per chat.
 2. **Idea.**
    - Check Metricool analytics (FBPO02, FBPO03 and FBPO12, last 14 days) and the scheduled posts, then pick a fresh idea and country.
    - What works: naming a product and price, and opening with a question. Plain greetings perform worst.
@@ -152,6 +158,8 @@ Use getBestTimeToPostByNetwork for each network to adjust the times.
 - Ads running from 30 Sep: Zimbabwe WhatsApp with the ElevenLabs picture (campaign 120254392425900085) and with the Canva picture (120254392547500085), both to 7 Oct. From 1 Oct: Mozambique code poster (120254403091160085), to 8 Oct.
 - Metricool upgraded to the Starter plan (about $25/month) on 1 Oct 2026.
 - 2 Oct: deleted the unused "Your voucher, their airtime | Foreigners in SA | 14 days" campaign (120254403202960085; its ad was paused, R0 spent) on the user's instruction. The boosted post "Your voucher. Their airtime." (ad set 120254404386660085) keeps running to 7 Oct.
+- 3 Oct: Malawi 60-day engagement ad set (120254232283700085) paused early on the user's yes (the Malawi WhatsApp ad was getting chats under R1). The 7 Oct task still pauses the Mozambique one.
+- From 4 Oct: Zimbabwe WhatsApp ad, long-code poster (campaign 120254450668690085, ad set 120254450670030085), to 11 Oct.
 - From 3 Oct: Botswana WhatsApp ad, code poster (campaign 120254433473170085, ad set 120254433475780085), to 10 Oct.
 - From 2 Oct: Malawi WhatsApp ad with the Canva picture (campaign 120254423744900085, ad set 120254423747760085), to 9 Oct. Malawi targeting uses interest 6003288582476 ("Malawi"), found in this account's Malawi 60-day ad set.
 - From 3 Oct: Fluxr Agents app video ad, live with the user's yes. Campaign "Fluxr Agents | Video 1 "Your code" | Play Store | 7 Days" (120254443528210085), ad set 120254443528220085 (South Africa 18-65+, R16.34/day, 3-10 Oct, Traffic to the Play Store page, link clicks, Download button), ad 120254443528230085 (Video 1, 9:16 + 4:5). Video 2 is added to the same ad set on 5 Oct by the Agents chat. On 8 Oct the Agents chat extends it 30 days if it's doing well (cost per link click R2 or less, CTR 1%+), raising to at most R33/day only if clearly strong.
