@@ -55,3 +55,4 @@ Test pool (southern African accents, picked for the market; add more over time):
 | 2 Oct | Fluxr Agents V1 (17:00) | Agents app, all countries | Thobeka Majola | | | | 51 s promo, not a daily short |
 | 5 Oct | Fluxr Agents V2 (17:00) | Agents app, 5 things | Darius Voice | | | | 50 s promo, not a daily short |
 | 3 Oct | Daily short (18:00) | Botswana, send airtime | Thobeka Majola | | | | main slot, eleven_v4, 29 s |
+| 4 Oct | Daily short (18:00) | Zimbabwe, send airtime | Darius Voice | | | | main slot, eleven_v4, 29 s (awaiting "post") |
