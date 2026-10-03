@@ -113,8 +113,8 @@ h1{{margin-top:12px;color:#fff;font-weight:700;font-size:{72 if two_line else 84
     <path d="M300 60 l-22 -4 m22 4 l-10 20" stroke="#0D372B" stroke-opacity=".45" stroke-width="4" stroke-linecap="round" fill="none"/></svg>
   <div class="phone"><div class="screen"><div class="notch"></div>
     <div class="status"><span>09:41</span><span>●●● 5G</span></div>
-    <div class="dialed" style="font-size:{37 if len(code) <= 14 else 24}px;letter-spacing:0">{e(code if len(code) <= 20 else "*130*31026*voucher#")}</div>
-    <div class="dialsub">Fluxr · any phone, no app</div>
+    <div class="dialed" style="font-size:{37 if len(code) <= 14 else 24}px;letter-spacing:0;line-height:1.25">{e(code) if len(code) <= 20 else e(code[:code.index('*', code.index('voucher'))+1]) + '<br>' + e(code[code.index('*', code.index('voucher'))+1:]) if 'voucher*' in code else e(code)}</div>
+    <div class="dialsub" style="{'top:168px' if len(code) > 20 else ''}">Fluxr · any phone, no app</div>
     <div class="keypad">{keypad}</div>
     <div class="call">{ICON_CALL}</div>
   </div></div>
